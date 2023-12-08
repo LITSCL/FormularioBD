@@ -1,12 +1,12 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Registro BD</title>
 </head>
 <body bgcolor="#FFA07A"> <!-- Aca se esta cambiando el color del body con el atributo bgcolor. -->
@@ -19,23 +19,22 @@ String clave = request.getParameter("clave");
 String pais = request.getParameter("pais");
 String tecnologia = request.getParameter("tecnologia");
 		
-//1. Conectarse a la base de datos (Este paso puede generar un excepción).
-Class.forName("com.mysql.cj.jdbc.Driver"); //Aca se esta estableciendo el driver a utilizar (Esta instrucción inicia el driver con el método estático forName).
-Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbformulariobd", "root", "root"); //Esta instrucción conecta el programa a la base de datos (El primer parámetro es la ruta, el segundo el usuario y el tereco la contraseña).
+//1. Conectarse a la base de datos (Este paso puede generar un excepciÃ³n).
+Class.forName("com.mysql.cj.jdbc.Driver"); //Aca se esta estableciendo el driver a utilizar (Esta instrucciÃ³n inicia el driver con el mÃ©todo estÃ¡tico forName).
+Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbformulariobd", "root", "root"); //Esta instrucciÃ³n conecta el programa a la base de datos (El primer parÃ¡metro es la ruta, el segundo el usuario y el tereco la contraseÃ±a).
 		
-//2. Definir la sentencia sql (INSERT) (Este paso puede generar un excepción).
+//2. Definir la sentencia sql (INSERT) (Este paso puede generar un excepciÃ³n).
 String sql = "INSERT INTO usuario" + "(nombre,apellido,usuario,clave,pais,tecnologia)" + " VALUES('" + nombre + "','" + apellido + "',+'" + usuario + "','" + clave + "','" + pais + "','" + tecnologia + "')"; //Los ID Autoincrementales no van aca, ya que el dbms asigna su valor.
-Statement st = conexion.createStatement(); //Aca se crea el Statement (El método crateStatement retorna un objeti de la clase Statement, dicho objeto es necesario para ejecutar la sentencia sql).
+Statement st = conexion.createStatement(); //Aca se crea el Statement (El mÃ©todo crateStatement retorna un objeti de la clase Statement, dicho objeto es necesario para ejecutar la sentencia sql).
 		
-//3. Ejecutar el SQL (Este paso puede generar un excepción).
+//3. Ejecutar el SQL (Este paso puede generar un excepciÃ³n).
 st.executeUpdate(sql); //Se utiliza el objeto de tipo Statement para ejecutar la sentencia sql.
 		
-//4. Desconectarse (Este paso puede generar un excepción).
-conexion.close(); //Esta instrucción le pide al dbms que nos desconecte.
+//4. Desconectarse (Este paso puede generar un excepciÃ³n).
+conexion.close(); //Esta instrucciÃ³n le pide al dbms que nos desconecte.
 		
 out.println("Registro exitoso");		
 %>
-
 	<center>
 		<nav>
 			<p>

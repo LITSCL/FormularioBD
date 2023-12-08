@@ -1,10 +1,10 @@
 <%@page import="java.sql.*"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Mostrar</title>
 </head>
 <body bgcolor="#FFA07A"> <!-- Aca se esta cambiando el color del body con el atributo bgcolor. -->
@@ -22,20 +22,20 @@
 		</nav>
 	</center>
 <%
-//1. Conectarse a la base de datos (Este paso puede generar un excepción).
-Class.forName("com.mysql.cj.jdbc.Driver"); //Aca se esta estableciendo el driver a utilizar (Esta instrucción inicia el driver con el método estático forName).
-Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbformulariobd","root","root"); //Esta instrucción conecta el programa a la base de datos (El primer parámetro es la ruta, el segundo el usuario y el tereco la contraseña).
+//1. Conectarse a la base de datos (Este paso puede generar un excepciÃ³n).
+Class.forName("com.mysql.cj.jdbc.Driver"); //Aca se esta estableciendo el driver a utilizar (Esta instrucciÃ³n inicia el driver con el mÃ©todo estÃ¡tico forName).
+Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbformulariobd","root","root"); //Esta instrucciÃ³n conecta el programa a la base de datos (El primer parÃ¡metro es la ruta, el segundo el usuario y el tereco la contraseÃ±a).
 		
-//2. Definir la sentencia sql (INSERT) (Este paso puede generar un excepción).
+//2. Definir la sentencia sql (INSERT) (Este paso puede generar un excepciÃ³n).
 String sql = "SELECT * FROM usuario"; //Los ID Autoincrementales no van aca, ya que el dbms asigna su valor.
-Statement st = conexion.createStatement(); //Aca se crea el Statement (El método crateStatement retorna un objeti de la clase Statement, dicho objeto es necesario para ejecutar la sentencia sql).
+Statement st = conexion.createStatement(); //Aca se crea el Statement (El mÃ©todo crateStatement retorna un objeti de la clase Statement, dicho objeto es necesario para ejecutar la sentencia sql).
 		
-//3. Ejecutar el SQL (Este paso puede generar un excepción).
+//3. Ejecutar el SQL (Este paso puede generar un excepciÃ³n).
 ResultSet rs = st.executeQuery(sql); //Aca se ejecuta el SQL, se trae la tabla y se almacena en el objeto.
 		
 out.println("<table border=1>");
-out.println("<tr>"+"<th>Nombre</th>"+"<th>Apellido</th>"+"<th>Usuario</th>"+"<th>Clave</th>"+"<th>Pais</th>"+"<th>Tecnología</th>"+"</tr>");
-while (rs.next()) { //El método next busca si hay una fila abajo (Mientras haya una fila abajo, el bucle no se termina).
+out.println("<tr>"+"<th>Nombre</th>"+"<th>Apellido</th>"+"<th>Usuario</th>"+"<th>Clave</th>"+"<th>Pais</th>"+"<th>TecnologÃ­a</th>"+"</tr>");
+while (rs.next()) { //El mÃ©todo next busca si hay una fila abajo (Mientras haya una fila abajo, el bucle no se termina).
 	out.println("<tr>");
 	out.println("<td>" + rs.getString("nombre") + "</td>");
 	out.println("<td>" + rs.getString("apellido") + "</td>");
@@ -49,8 +49,8 @@ while (rs.next()) { //El método next busca si hay una fila abajo (Mientras haya 
 		
 rs.close(); //Se cierra el puntero.
 		
-//4. Desconectarse (Este paso puede generar un excepción).
-conexion.close(); //Esta instrucción le pide al dbms que nos desconecte.
+//4. Desconectarse (Este paso puede generar un excepciÃ³n).
+conexion.close(); //Esta instrucciÃ³n le pide al dbms que nos desconecte.
 %>
 </body>
 </html>
