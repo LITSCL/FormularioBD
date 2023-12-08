@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+</head>
+<style>  /* Esta etiqueta sirve para incluir código CSS */
+
+table {
+	background:#FF6;
+	border-color: green;
+}
+
+</style>
+<body bgcolor="#FFA07A"> <!-- Aca se esta cambiando el color del body con el atributo bgcolor. -->
+
+ <center><font color="blue"><h1>Login</h1></font></center>
+ 
+ <center>
+  <nav>
+  <p>
+	<a href="index.html">Inicio</a>
+    <a href="formulario_login.html">Logearse</a>
+    <a href="formulario_registro.html">Registrarse</a>
+    <a href="resultado_mostrar.jsp">Mostrar</a>
+   </p>
+  </nav>
+ </center>
+ 
+ <form action="resultado_login.jsp" method="POST">
+
+ <table border="20"> <!-- Aca se esta añadiendo un borde de 20 pixeles, se utiliza una tabla para que quede todo mas ordenado. -->
+ 
+  <tr>
+   <td>
+    <label for="usuario">Usuario</label>
+   </td>   
+   <td>
+    <input type="text" name="usuario">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <label for="clave">Contraseña</label>
+   </td>  
+   <td>
+    <input type="text" name="clave">
+   </td>
+  </tr>
+  
+  <tr>
+     
+     <td colspan="2" align="center"><input type="submit" name="button" id="button" value="Ingresar"></td>
+     
+  </tr>
+ 
+ </table>
+ 
+ </form>
+
+</body>
+</html>
